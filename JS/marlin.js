@@ -5,49 +5,60 @@ mandarform=()=>{
     let description= form.description.value;
     let state= form.city.value;
     let city= form.city.value;
-    let contaminationLevel= form.levelContamination.value;
+    let contaminationLevel= Number(form.levelContamination.value);
     let beachName= form.beachName.value;
+   
     
-    const imgFile= document.getElementById("imgFile").files[0];
-    // const imgFile = form.imgFile.value;
-    let formData = new FormData();
-    formData.append('imgFile',imgFile); 
+    
+    var formData = new FormData();
+    formData.append('imgFile',document.getElementById("imgFile").files[0]); 
 
-    console.log(imgFile);
+    
 
    
    
     myHeaders = new Headers();
     myHeaders.append("x-api-key", "rG1sPJtX3]0BUzV)-p@h]9Xp");
-    myHeaders.append("Content-Type", "multipart/form-data");
-    myHeaders.append("boundary", imgFile.size);
-    console.log(formData);
-    var raw =formData;
+  
 
-
-    // var raw = JSON.stringify({
-    //     "name": "Jose",
-    //     "title": "Basura en Mazatlan",
-    //     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minima illo vero tenetur quo ea deleniti, non asperiores atque dolores dolor facere enim magnam, corrupti laborum assumenda, nam nostrum aperiam.",
-    //     "state": "Sinaloa",
-    //     "city": "Mazatlan",
-    //     "beachName": "Playa Las Gaviotas",
-    //     "contaminationLevel": 10,
-    //     "fileName": "1ffbce0a-61be-4a57-a8a9-b2c5acc6c385.png"
-    //   });
-
-
-    var requestOptions = {
+       var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: raw,
+      body: formData,
       redirect: 'follow'
     };
-    // fetch("https://marlin-web-api.azurewebsites.net/api/post", requestOptions)
     fetch("https://marlin-web-api.azurewebsites.net/api/img", requestOptions)
       .then(response => response.text())
-      .then(result => console.log(result))
+      .then(result => {console.log(result)
+        var myobj = JSON.parse(result);
+        console.log(myobj.data);
+        let fileName=JSON.stringify(myobj.data);
+        
+      
+        var myHeaders1 = new Headers();
+      myHeaders1.append("x-api-key", "rG1sPJtX3]0BUzV)-p@h]9Xp");
+    myHeaders1.append("Content-Type", "application/json");
+
+                var data = JSON.stringify({name,title,description,state,city,beachName,contaminationLevel,fileName})
+        console.log(data);
+        
+        var requestOptions2 = {
+          method: 'POST',
+          headers: myHeaders1,
+          body: data,
+          redirect: 'follow'
+        };
+        
+        fetch("https://marlin-web-api.azurewebsites.net/api/post", requestOptions2)
+      .then(response => response.text())
+      .then(result => {console.log(result)})
       .catch(error => console.log('error', error));
+         
+      })
+      .catch(error => console.log('error', error));
+      
+      
+  
 
 }
 
