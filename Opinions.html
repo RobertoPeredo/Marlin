@@ -45,7 +45,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
               </li>
@@ -79,25 +79,30 @@
         <label for="description" class="form-label">Descripción: </label>
         <input type="text" class="form-control" id="description" >
       </div>
-      <!-- 4estado -->
-      <div class="mb-3">
-        <label for="state" class="form-label">Estado: </label>
-        <input type="text" class="form-control" id="state" >
-      </div>
-      <!-- 5Ciudad -->
-      <div class="mb-3">
-        <label for="city" class="form-label">Ciudad: </label>
-        <input type="text" class="form-control" id="city" >
-      </div>
-       <!-- 6Nivel de contaminación -->
-       <div class="mb-3">
-        <label for="levelContamination" class="form-label">Nivel de contaminación: </label>
-        <input type="text" class="form-control" id="levelContamination" >
-      </div>
+      
        <!-- 7Nombre de la playa -->
        <div class="mb-3">
         <label for="beachName" class="form-label">Nombre de la playa: </label>
-        <input type="text" class="form-control" id="beachName" >
+        <select class="form-select" aria-label="Default select example" id="beachName"> 
+          <option selected>Selecciona la playa</option>
+          <option value="Playa de Tijuana">Playa de Tijuana</option>
+          <option value="Playa Coromuel, El tecolote">Playa Coromuel, El tecolote</option>
+          <option value="Playa Manigua, Playa Norte 1">Playa Manigua, Playa Norte 1</option>
+          <option value="Playa Boca del cielo">Playa Boca del cielo</option>
+          <option value="Cuyutlan, El Paraiso">Cuyutlan, El Paraiso</option>
+          <option value="Caleta, La Roqueta">Caleta, La Roqueta</option>
+          <option value="Playa Yelapa, Playa Quimixto">Playa Yelapa, Playa Quimixto</option>
+          <option value="Playa Nexpa, Playa Maruata">Playa Nexpa, Playa Maruata</option>
+          <option value="Playa Nuevo Vallarta 1, Playa Bucerias">Playa Nuevo Vallarta 1, Playa Bucerias</option>
+          <option value="Playa Maguey, Playa Bahia Santa Cruz">Playa Maguey, Playa Bahia Santa Cruz</option>
+          <option value="Playa Puerto Morelos, Playa Delfines">Playa Puerto Morelos, Playa Delfines</option>
+          <option value="Playa Altada">Playa Altada</option>
+          <option value="Playa Bahia de Kino 1 ">Playa Bahia de Kino 1 </option>
+          <option value="Playa Sánchez Magallanes">Playa Sánchez Magallanes</option>
+          <option value="Playa Barra del Tordo">Playa Barra del Tordo</option>
+          <option value="Playa Tecolutla, Playa Noray">Playa Tecolutla, Playa Noray</option>
+          <option value="Playa Telchac">Playa Telchac</option>
+        </select>
       </div>
 
       <!--imagen-->
@@ -107,15 +112,16 @@
         <!-- <input type="text" class="form-control" id="imgFile" > -->
 
       </div>
-   
-      
-    
+
     <button type="button" class="btn btn-primary" onclick="mandarform()">Submit</button>
   </form>
 
 
     </div>
+
     <script src="./JS/marlin.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        
+    
 </body>
 </html>
