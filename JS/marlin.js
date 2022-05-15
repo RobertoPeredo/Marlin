@@ -7,14 +7,23 @@ mandarform=()=>{
     let city= form.city.value;
     let contaminationLevel= form.levelContamination.value;
     let beachName= form.beachName.value;
-    File imgFile=  new File(imagen1);
+    
+    const imgFile= document.getElementById("imgFile").files[0];
+    // const imgFile = form.imgFile.value;
+    let formData = new FormData();
+    formData.append('imgFile',imgFile); 
+
+    console.log(imgFile);
+
+   
    
     myHeaders = new Headers();
     myHeaders.append("x-api-key", "rG1sPJtX3]0BUzV)-p@h]9Xp");
-    myHeaders.append("Content-Type", "application/json");
-    var raw = JSON.stringify({
-        imgFile
-    });
+    myHeaders.append("Content-Type", "multipart/form-data");
+    myHeaders.append("boundary", imgFile.size);
+    console.log(formData);
+    var raw =formData;
+
 
     // var raw = JSON.stringify({
     //     "name": "Jose",
@@ -101,9 +110,7 @@ async function postData(url = '', data = {}) {
 
 
 
-getNombre=(b)=>{
-  
-    
+ getNombre=(b)=>{     
     
     switch( b.id ){
                     //1
