@@ -1,0 +1,21 @@
+.mapa path{
+    fill: #88A4BC;
+    stroke: whitesmoke;
+    stroke-width: 2px;
+
+}
+
+.mapa :hover{
+    fill: #3B729F;
+   
+}
+
+.fondo-container{
+    background-color: azure;
+}
+
+.no-hover{
+    /* pointer-events: none !important; */
+    fill: #88A4BC !important;
+    
+}
