@@ -1,209 +1,11 @@
-let datosApi={
-  status: true,
-  message: "",
-  data: [
-      {
-          id_beach: 1,
-          beach_name: "Playa de Tijuana",
-          state: "BAJA CALIFORNIA",
-          city: "TIJUANA",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 2,
-          beach_name: "Playa Coromuel, El tecolote",
-          state: "BAJA CALIFORNIA SUR",
-          city: "LA PAZ",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 3,
-          beach_name: "Playa Manigua, Playa Norte 1",
-          state: "CAMPECHE",
-          city: "CIUDAD DEL CARMEN",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 4,
-          beach_name: "Playa Boca del cielo",
-          state: "CHIAPAS",
-          city: "TONALÁ",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 5,
-          beach_name: "Cuyutlan, El Paraiso",
-          state: "COLIMA",
-          city: "ARMERÍA",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 6,
-          beach_name: "Caleta, La Roqueta",
-          state: "GUERRERO",
-          city: "ACAPULCO",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 7,
-          beach_name: "Playa Yelapa, Playa Quimixto",
-          state: "JALISCO",
-          city: "PUERTO VALLARTA",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 8,
-          beach_name: "Playa Nexpa, Playa Maruata",
-          state: "MICHOACAN",
-          city: "AQUILA",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 9,
-          beach_name: "Playa Nuevo Vallarta 1, Playa Bucerias",
-          state: "NAYARIT",
-          city: "BAHÍA DE BANDERAS",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 10,
-          beach_name: "Playa Maguey, Playa Bahia Santa Cruz",
-          state: "OAXACA",
-          city: "HUATULCO",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 11,
-          beach_name: "Playa Puerto Morelos, Playa Delfines",
-          state: "QUINTA ROO",
-          city: "CANCÚN",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 12,
-          beach_name: "Playa Altada",
-          state: "SINALOA",
-          city: "BAHÍA DE ALTATA",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 13,
-          beach_name: "Playa Bahia de Kino 1 ",
-          state: "SONORA",
-          city: "BAHÍA DE KINO",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 14,
-          beach_name: "Playa Sánchez Magallanes",
-          state: "TABASCO",
-          city: "CARDENAS",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 15,
-          beach_name: "Playa Barra del Tordo",
-          state: "TAMAULIPAS",
-          city: "ALDAMA",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 16,
-          beach_name: "Playa Tecolutla, Playa Noray",
-          state: "VERACRUZ",
-          city: "MARTÍNEZ DE LA TORRE",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      },
-      {
-          id_beach: 17,
-          beach_name: "Playa Telchac",
-          state: "YUCATAN",
-          city: "TELCHAC",
-          statistics: {
-              contamination_level: "Media",
-              quality: "Apta",
-              year: 2022
-          }
-      }
-  ]
-}
+
 
 mandarform=()=>{
     let form = document.forms["formulario"]
     let name= form.name.value;
     let title= form.title.value;
     let description= form.description.value;
-    let state= form.city.value;
-    let city= form.city.value;
-    let contaminationLevel= Number(form.levelContamination.value);
     let beachName= form.beachName.value;
-   
-    
-    
     var formData = new FormData();
     formData.append('imgFile',document.getElementById("imgFile").files[0]); 
 
@@ -233,7 +35,7 @@ mandarform=()=>{
       myHeaders1.append("x-api-key", "rG1sPJtX3]0BUzV)-p@h]9Xp");
     myHeaders1.append("Content-Type", "application/json");
 
-                var data = JSON.stringify({name,title,description,state,city,beachName,contaminationLevel,fileName})
+                var data = JSON.stringify({name,title,description,beachName,fileName})
         console.log(data);
         
         var requestOptions2 = {
@@ -281,36 +83,7 @@ async function postData(url = '', data = {}) {
   }
 
 
-// let fecthData=()=>{
-//     let utl=`http://aquivaellinkdelaapi.com/${estado}`;
-//     fetch(url).then((res)=>{
 
-//         if(res.status != "200"){
-//             console.log(res);
-//         }
-//         else{
-//             return res.json();
-//         }
-//     }).then ((data)=>{
-//         console.log(data);
-
-//         //asigno de mi api a variables locales:
-//         let nombrePlaya=data.playa;
-//         let municipio=data.municipio;
-//         let nivel=data.nivel;
-//         let estado=dato.estado;
-
-
-//         //Hago los cambios en html
-//         _setnombrePlaya(nombrePlaya);
-//         _setMunicipio(municipio);
-//         _setNivel(nivel);
-//         _setEstado(estado);
-
-
-
-//     })
-// }
 
 
 
@@ -474,14 +247,12 @@ function guardar_localstorage(nombre,id){
     estado= localStorage.getItem("nombre");
     i=localStorage.getItem("id");
     state.innerHTML= estado;
-    console.log(datosApi.data[i-1].beach_name);
-    _setnombrePlaya(datosApi.data[i-1].beach_name);
-_setMunicipio(datosApi.data[i-1].city)
-_setNivel(datosApi.data[i-1].statistics.contamination_level)
-_setStatus(datosApi.data[i-1].statistics.quality);
 
 
- }
+
+  fecthData();
+
+}
 
  const _setnombrePlaya=(a)=>{
     const playa1=document.getElementById("playa1");// para  cambiar html
@@ -499,3 +270,39 @@ const _setNivel=(a)=>{
     const status1=document.getElementById("status1");// para  cambiar html
     status1.innerHTML=a ;
 }
+
+
+fecthData=()=>{
+
+myHeaders = new Headers();
+myHeaders.append("x-api-key", "rG1sPJtX3]0BUzV)-p@h]9Xp");
+
+
+   var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  
+  redirect: 'follow'
+};
+
+fetch("https://marlin-web-api.azurewebsites.net/api/beach/statistics", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        //console.log(result) para mostrar los datos que me devuelve el api
+        var datosApi = JSON.parse(result);
+        
+        _setnombrePlaya(datosApi.data[i-1].beach_name);
+        _setMunicipio(datosApi.data[i-1].city)
+        _setNivel(datosApi.data[i-1].statistics.contamination_level)
+        _setStatus(datosApi.data[i-1].statistics.quality);
+      })   
+        
+             
+        .catch(error => console.log('error', error));
+         
+      }
+
+
+
+
+
