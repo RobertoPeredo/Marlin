@@ -338,8 +338,8 @@ fetch("https://marlin-web-api.azurewebsites.net/api/beach/statistics", requestOp
                  const clientInfo = `
                 
     
-    <div class="card my-3 mx-3"  style="width: 18rem; height: 25rem;">
-        <img src="${arr.url}" class="card-img-top mx-auto" alt="Imagen de playa" >
+    <div class="card my-3 mx-3"  style="width: 18rem; height: 30rem;">
+        <img src="${arr.url}" class="card-img-top mx-auto tamaño" alt="Imagen de playa" >
         <div class="card-body">
           <h5 class="card-title">${arr.beachName}</h5>
           <p class="card-text">Opinión de : ${arr.name}</p>
