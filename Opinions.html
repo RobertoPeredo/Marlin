@@ -63,27 +63,27 @@
 
         <!-- formulario -->
 <p class="h3 text-center mt-5 pt-5"> Compartenos tu experiencia en la visita de la playa:</p>
-<form id="formulario">
+<form id="formulario" >
     <!-- 1nombre -->
     <div class="mb-3">
       <label for="name" class="form-label">Nombre: </label>
-      <input type="text" class="form-control" id="name" >
+      <input type="text" class="form-control" id="name"  required>
     </div>
     <!-- 2titulo -->
     <div class="mb-3">
         <label for="title" class="form-label">Titulo: </label>
-        <input type="text" class="form-control" id="title" >
+        <input type="text" class="form-control" id="title" required >
       </div>
       <!-- 3descripción -->
       <div class="mb-3">
         <label for="description" class="form-label">Descripción: </label>
-        <input type="text" class="form-control" id="description"  >
+        <input type="text" class="form-control" id="description" required >
       </div>
       
        <!-- 7Nombre de la playa -->
        <div class="mb-3">
         <label for="beachName" class="form-label">Nombre de la playa: </label>
-        <select class="form-select" aria-label="Default select example" id="beachName" > 
+        <select class="form-select" aria-label="Default select example" id="beachName" required > 
           <option selected>Selecciona la playa</option>
           <option value="Playa de Tijuana">Playa de Tijuana</option>
           <option value="Playa Coromuel, El tecolote">Playa Coromuel, El tecolote</option>
@@ -108,21 +108,32 @@
       <!--imagen-->
       <div class="mb-3">
         <label for="imgFile" class="form-label">Foto: </label>
-        <input type="file" accept="image/png,image/jpeg" name="" id="imgFile" >
+        <input type="file" accept="image/png,image/jpeg" name="" id="imgFile"required>
         <!-- <input type="text" class="form-control" id="imgFile" > -->
 
       </div>
-
-    <button type="button" class="btn btn-primary" onclick="mandarform()">Submit</button>
+      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+     
+      <div><button type="button"  id="fakeSubmit" class="btn btn-primary" onclick="mandarform()">Submit</button></div>
   </form>
 
+  <div class="mt-5">
+    <p class="h2 text-success text-center mt-5" >Opiniones de otros usuarios</p>
 
-    <div class="mt-5">
-      <p class="h2 text-success text-center mt-5" >Opiniones de otros usuarios</p>
-
-      <!--playa 1-->
-    
+    <!--playa 1-->
+  
 </div>
+
+
+
+
+  <!--playa 1-->
+  <div class="row align-items-center mt-5" id="contenedor-opiniones">
+    
+   
+</div>
+
+    
 
 
     </div>
