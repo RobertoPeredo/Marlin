@@ -67,23 +67,23 @@
     <!-- 1nombre -->
     <div class="mb-3">
       <label for="name" class="form-label">Nombre: </label>
-      <input type="text" class="form-control" id="name"  required>
+      <input type="text" class="form-control" id="name"  >
     </div>
     <!-- 2titulo -->
     <div class="mb-3">
         <label for="title" class="form-label">Titulo: </label>
-        <input type="text" class="form-control" id="title" required >
+        <input type="text" class="form-control" id="title"  >
       </div>
       <!-- 3descripción -->
       <div class="mb-3">
         <label for="description" class="form-label">Descripción: </label>
-        <input type="text" class="form-control" id="description" required >
+        <input type="text" class="form-control" id="description"  >
       </div>
       
        <!-- 7Nombre de la playa -->
        <div class="mb-3">
         <label for="beachName" class="form-label">Nombre de la playa: </label>
-        <select class="form-select" aria-label="Default select example" id="beachName" required > 
+        <select class="form-select" aria-label="Default select example" id="beachName"  > 
           <option selected>Selecciona la playa</option>
           <option value="Playa de Tijuana">Playa de Tijuana</option>
           <option value="Playa Coromuel, El tecolote">Playa Coromuel, El tecolote</option>
@@ -108,11 +108,11 @@
       <!--imagen-->
       <div class="mb-3">
         <label for="imgFile" class="form-label">Foto: </label>
-        <input type="file" accept="image/png,image/jpeg" name="" id="imgFile"required>
+        <input type="file" accept="image/png,image/jpeg" name="" id="imgFile">
         <!-- <input type="text" class="form-control" id="imgFile" > -->
 
       </div>
-      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      <!-- <button type="submit" onclick="mandarform()" class="btn btn-primary">Submit</button> -->
      
       <div><button type="button"  id="fakeSubmit" class="btn btn-primary" onclick="mandarform()">Submit</button></div>
   </form>

@@ -2,7 +2,45 @@
 
 mandarform=()=>{
 
-    let form = document.forms["formulario"]
+  let form = document.forms["formulario"]
+
+  
+    //valido el nombre
+    if (form.name.value.length==0){
+         alert("Tiene que escribir su nombre")
+         form.name.focus()
+         return 0;
+    }
+
+    if (form.title.value.length==0){
+      alert("Por favor agreque un título")
+      form.title.focus()
+      return 0;
+ }
+
+ if (form.description.value.length==0){
+  alert("Por favor agreque una descripción")
+  form.description.focus()
+  return 0;
+}
+
+if (form.beachName.selectedIndex==0){
+  alert("Por favor seleccione una playa de la lista")
+  form.beachName.focus()
+  return 0;
+}
+
+if (form.imgFile.value.length==0){
+  alert("Por favor agreque una imagen")
+  form.imgFile.focus()
+  return 0;
+}
+
+ 
+      //el formulario se envia
+    alert("Muchas gracias por enviar el formulario");
+
+   
     let name= form.name.value;
     let title= form.title.value;
     let description= form.description.value;
@@ -58,6 +96,8 @@ mandarform=()=>{
       .catch(error => console.log('error', error));
       
       
+    
+   
   
 
 }
