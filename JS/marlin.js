@@ -28,7 +28,8 @@ mandarform=()=>{
       .then(result => {console.log(result)
         var myobj = JSON.parse(result);
         console.log(myobj.data);
-        let fileName=JSON.stringify(myobj.data);
+        let fileName=myobj.data;
+        console.log(fileName)
         
       
         var myHeaders1 = new Headers();
@@ -36,6 +37,7 @@ mandarform=()=>{
     myHeaders1.append("Content-Type", "application/json");
 
                 var data = JSON.stringify({name,title,description,beachName,fileName})
+                ;
         console.log(data);
         
         var requestOptions2 = {
@@ -291,9 +293,9 @@ fetch("https://marlin-web-api.azurewebsites.net/api/beach/statistics", requestOp
         //console.log(result) para mostrar los datos que me devuelve el api
         var datosApi = JSON.parse(result);
         
-        _setnombrePlaya(datosApi.data[i-1].beach_name);
+        _setnombrePlaya(datosApi.data[i-1].beachName);
         _setMunicipio(datosApi.data[i-1].city)
-        _setNivel(datosApi.data[i-1].statistics.contamination_level)
+        _setNivel(datosApi.data[i-1].statistics.contaminationLevel)
         _setStatus(datosApi.data[i-1].statistics.quality);
       })   
         
@@ -305,4 +307,90 @@ fetch("https://marlin-web-api.azurewebsites.net/api/beach/statistics", requestOp
 
 
 
+
+      fecthOpinion=()=>{
+
+        var arr=[];
+        myHeaders = new Headers();
+        myHeaders.append("x-api-key", "rG1sPJtX3]0BUzV)-p@h]9Xp");
+        
+        
+           var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,          
+          redirect: 'follow'
+        };
+        
+        fetch("https://marlin-web-api.azurewebsites.net/api/post/", requestOptions)
+              .then(response => response.text())
+              .then(result => {
+                //console.log(result) para mostrar los datos que me devuelve el api
+                var datosUSer = JSON.parse(result);
+                // console.log(datosUSer.data.length);
+                
+               for (i=0; i<datosUSer.data.length;i++)
+               {
+                 arr=datosUSer.data[i];  
+                
+                 
+                 var divFr= document.createElement("div"); 
+                 divFr.style.marginTop="5px" 
+                          
+                document.body.appendChild(divFr);
+
+                var name = document.createElement("p");
+                divFr.appendChild(name);
+                var textName = document.createTextNode("Nombre: "+ arr.name);
+                name.appendChild(textName);
+                
+                var beachName = document.createElement("p");
+                divFr.appendChild(beachName);
+                var textbeachName = document.createTextNode("Nombre de: "+ arr.beachName);
+                beachName.appendChild(textbeachName);
+                
+
+                var location = document.createElement("p");
+                divFr.appendChild(location);
+                var textlocation = document.createTextNode("Ubicación de la playa: Estado: "+ arr.stateName+".  Ciudad:" +arr.cityName);
+                location.appendChild(textlocation);
+              
+
+                var title = document.createElement("p");
+                divFr.appendChild(title);
+                var textTitle = document.createTextNode("Titulo: "+ arr.title);
+                title.appendChild(textTitle);
+                
+                var description = document.createElement("p");
+                divFr.appendChild(description);
+                var textDescription = document.createTextNode("Descripción: "+ arr.description);
+                description.appendChild(textDescription);
+                
+                var img = document.createElement("img");
+                img.style.width="150px";
+                img.src=(arr.url)
+               document.body.append(img)
+                
+              
+                
+                
+
+                
+               }
+               
+              }) 
+                               
+              .catch(error => console.log('error', error));
+                 
+              }
+        
+
+
+
+
+
+     function llenarOpiniones(){
+       
+       fecthOpinion();
+
+      }
 
