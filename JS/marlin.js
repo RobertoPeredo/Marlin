@@ -1,6 +1,7 @@
 
 
 mandarform=()=>{
+
     let form = document.forms["formulario"]
     let name= form.name.value;
     let title= form.title.value;
@@ -49,7 +50,8 @@ mandarform=()=>{
         
         fetch("https://marlin-web-api.azurewebsites.net/api/post", requestOptions2)
       .then(response => response.text())
-      .then(result => {console.log(result)})
+      .then(result => {console.log(result)
+        document.location.href="./Opinions.html";})
       .catch(error => console.log('error', error));
          
       })
@@ -59,6 +61,7 @@ mandarform=()=>{
   
 
 }
+
 
 
 
@@ -331,44 +334,65 @@ fetch("https://marlin-web-api.azurewebsites.net/api/beach/statistics", requestOp
                for (i=0; i<datosUSer.data.length;i++)
                {
                  arr=datosUSer.data[i];  
+
+                 const clientInfo = `
                 
+    
+    <div class="card my-3 mx-3"  style="width: 18rem; height: 25rem;">
+        <img src="${arr.url}" class="card-img-top mx-auto" alt="Imagen de playa" >
+        <div class="card-body">
+          <h5 class="card-title">${arr.beachName}</h5>
+          <p class="card-text">Opinión de : ${arr.name}</p>
+<p class="card-text"> Ubicación: ${arr.cityName},${arr.stateName} </p>
+<p class="card-text">Descripción: ${ arr.description}</p>
+          
+        </div>
+      </div>
+
+                  
+               `
+               let prinre=document.getElementById("contenedor-opiniones")
+               prinre.innerHTML+=clientInfo
+
+
+                ////////////////////////////////////////
                  
-                 var divFr= document.createElement("div"); 
-                 divFr.style.marginTop="5px" 
+              //    var divFr= document.createElement("div"); 
+              //    divFr.style.marginTop="5px" 
                           
-                document.body.appendChild(divFr);
+              //   document.body.appendChild(divFr);
 
-                var name = document.createElement("p");
-                divFr.appendChild(name);
-                var textName = document.createTextNode("Nombre: "+ arr.name);
-                name.appendChild(textName);
+              //   var name = document.createElement("p");
+              //   divFr.appendChild(name);
+              //   var textName = document.createTextNode("Nombre: "+ arr.name);
+              //   name.appendChild(textName);
                 
-                var beachName = document.createElement("p");
-                divFr.appendChild(beachName);
-                var textbeachName = document.createTextNode("Nombre de: "+ arr.beachName);
-                beachName.appendChild(textbeachName);
+              //   var beachName = document.createElement("p");
+              //   divFr.appendChild(beachName);
+              //   var textbeachName = document.createTextNode("Nombre de: "+ arr.beachName);
+              //   beachName.appendChild(textbeachName);
                 
 
-                var location = document.createElement("p");
-                divFr.appendChild(location);
-                var textlocation = document.createTextNode("Ubicación de la playa: Estado: "+ arr.stateName+".  Ciudad:" +arr.cityName);
-                location.appendChild(textlocation);
+              //   var location = document.createElement("p");
+              //   divFr.appendChild(location);
+              //   var textlocation = document.createTextNode("Ubicación de la playa: Estado: "+ arr.stateName+".  Ciudad:" +arr.cityName);
+              //   location.appendChild(textlocation);
               
 
-                var title = document.createElement("p");
-                divFr.appendChild(title);
-                var textTitle = document.createTextNode("Titulo: "+ arr.title);
-                title.appendChild(textTitle);
+              //   var title = document.createElement("p");
+              //   divFr.appendChild(title);
+              //   var textTitle = document.createTextNode("Titulo: "+ arr.title);
+              //   title.appendChild(textTitle);
                 
-                var description = document.createElement("p");
-                divFr.appendChild(description);
-                var textDescription = document.createTextNode("Descripción: "+ arr.description);
-                description.appendChild(textDescription);
+              //   var description = document.createElement("p");
+              //   divFr.appendChild(description);
+              //   var textDescription = document.createTextNode("Descripción: "+ arr.description);
+              //   description.appendChild(textDescription);
                 
-                var img = document.createElement("img");
-                img.style.width="150px";
-                img.src=(arr.url)
-               document.body.append(img)
+              //   var img = document.createElement("img");
+              //   img.style.width="150px";
+              //   img.src=(arr.url)
+              //  document.body.append(img)
                 
               
                 
